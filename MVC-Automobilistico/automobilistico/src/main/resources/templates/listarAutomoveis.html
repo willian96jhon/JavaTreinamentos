@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Listar Clientes</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/home.css"/>
+
+
+</head>
+
+
+<body>
+
+<nav id="menu">
+<a href="/"><label>Home</label></a>
+<a href="/automovel"><label>Voltar ao Cadastro</label></a>
+
+</nav>
+
+<table class="table table-bordered table-striped">
+<thead>
+
+
+  <tr>
+  
+  
+     <th class="text-center col-md-2">Placa</th>
+     <th class="text-center col-md-2">Modelo</th>
+     <th class="text-center col-md-2">Ano de Fabricação</th>
+     <th class="text-center col-md-2">Valor</th>
+     
+     
+   </tr>
+   
+   </thead>
+   
+   <tr th:each="cadastros : ${cadastros}">
+      <td class="text-center" th:text="${cadastros.placa}"></td>
+      <td class="text-center" th:text="${cadastros.modelo}"></td>
+      <td class="text-center" th:text="${cadastros.anoFabricacao}"></td>
+      <td class="text-center" th:text="${cadastros.valor}"></td>
+      
+      <td>
+      
+       <a class="btn btn-link btn-xs" th:href="@{/automovel/{idCadastro}(idCadastro=${cadastros.idCadastro})}" title="Editar" rel="tooltip" data-placement="top">
+            <span class="glyphicon glyphicon-pencil"></span>
+         
+         </a>
+         
+         
+ <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalAutomoveis" th:attr="data-codigo=${cadastros.idCadastro}, data-descricao=${cadastros.modelo}"   title="Excluir" rel="tooltip" data-placement="top">
+          <span class="glyphicon glyphicon-asterisk"></span>
+       
+       </a>         
+         
+      </td>
+</tr>
+
+
+
+
+
+
+
+
+</table>
+
+<div th:replace="modalAutomoveis"></div>
+
+
+
+
+
+
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/excluse.js"></script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agendar</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/home.css"/>
+
+
+</head>
+<body>
+<header id="cabecalho">
+  <h3>Agendar</h3>
+  
+
+</header>
+
+<nav id="menu">
+<a href="/agendamento/agenda"><label>Agenda</label></a>
+  <a href="/"><label>Home</label></a>
+</nav>
+<form method="POST"  action="/agendamento" th:object="${agendamento}">
+
+<input type="hidden" th:field="*{id}"/>
+
+
+  
+  
+  
+  
+  <label>Data do agendamento: *</label>
+  <input th:field="*{data}"/>
+  </br></br></br>
+  
+  <label>Nome:</label>
+  <select name="nome"  >
+     
+      <option th:each="clientes : ${clientes}" th:value="${clientes.nome}" th:text="${clientes.nome}"></option>
+  
+  
+  </select>
+  
+  
+  <label>Serviços:</label>
+  <select th:field="*{servico}">
+  
+  <option value="Mecânica">Mecânica</option>
+  <option value="Hidráulica">Hidráulica</option>
+  <option value="Borracharia">Borracharia</option>
+  <option value="Motor">Motor</option>
+  <option value="outros">Outros</option>
+  
+  
+  </select>
+  
+  
+        
+        
+         <div class="form-group" id="salvar">
+        <div class="col-sm-offset-2 col-sm-10">
+           <button type="submit" class="btn btn-primary">Salvar</button>
+        
+        
+        </div>
+      
+    
+  
+
+
+
+
+
+</form>
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

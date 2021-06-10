@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Listar Servicos</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+</head>
+
+
+<body>
+
+<table class="table table-bordered table-striped">
+<thead>
+
+
+  <tr>
+  
+  
+     <th class="text-center col-md-2">Cliente</th>
+     <th class="text-center col-md-2">CPF</th>
+     <th class="text-center col-md-2">Serviços</th>
+   
+     
+     
+   </tr>
+   
+   </thead>
+   <tr>
+   <td class="text-center" th:text="${cliente.nome}"></td>
+   <td class="text-center" th:text="${cliente.cpf}"></td></tr>
+   
+   <tr th:each="servicos : ${servicos}">
+      <td class="text-center" th:text="${servicos.servico}"></td>
+     
+      
+      
+        <td><!--  
+      
+       <a class="btn btn-link btn-xs" th:href="@{/pessoa/{idCliente}(idCliente=${clientes.idCliente})}" title="Editar" rel="tooltip" data-placement="top">
+            <span class="glyphicon glyphicon-pencil"></span>
+         
+         </a>
+         
+         <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalAgenda" th:attr="data-codigo=${agendamentos.id}, data-descricao=${agendamentos.cliente.nome}"   title="Excluir" rel="tooltip" data-placement="top">
+          <span class="glyphicon glyphicon-asterisk">Deletar da Agenda</span>
+       
+       </a> -->
+         
+      </td>
+</tr>
+
+
+
+
+
+
+
+
+</table>
+
+<div th:replace="modalAgenda"></div>
+
+
+
+
+
+
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Listar Clientes</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/home.css"/>
+
+
+</head>
+
+
+<body>
+
+<nav id="menu">
+<a href="/"><label>Home</label></a>
+<a href="/pessoa"><label>Voltar ao Cadastro</label></a>
+
+
+</nav>
+
+<table class="table table-bordered table-striped">
+<thead>
+
+
+  <tr>
+  
+  
+     <th class="text-center col-md-2">Nome</th>
+     <th class="text-center col-md-2">Telefone</th>
+     <th class="text-center col-md-2">Endereço</th>
+     <th class="text-center col-md-2">CPF</th>
+     <th class="text-center col-md-2">Carros</th>
+     
+     
+     
+   </tr>
+   
+   </thead>
+   
+   <tr th:each="clientes : ${clientes}">
+      <td class="text-center" th:text="${clientes.nome}"></td>
+      <td class="text-center" th:text="${clientes.tel}"></td>
+      <td class="text-center" th:text="${clientes.endereco}"></td>
+      <td class="text-center" th:text="${clientes.cpf}"></td>
+     <!--   <td th:each="automoveis : ${automoveis}" class="text-center" th:text="${clientes.veiculos}"></td> -->
+      
+      <td>
+      
+       <a class="btn btn-link btn-xs" th:href="@{/pessoa/{idCliente}(idCliente=${clientes.idCliente})}" title="Editar" rel="tooltip" data-placement="top">
+            <span class="glyphicon glyphicon-pencil"></span>
+         
+         </a>
+         
+         <a class="btn btn-link btn-xs" th:href="@{/pessoa/addVeiculo/{idCliente}(idCliente=${clientes.idCliente})}" title="Adicionar Veículo]" rel="tooltip" data-placement="top">
+            <span class="glyphicon glyphicon-pencil">Add Veículo</span>
+         
+         </a>
+         
+         <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#modalClientes" th:attr="data-codigo=${clientes.idCliente}, data-descricao=${clientes.nome}"   title="Excluir" rel="tooltip" data-placement="top">
+          <span class="glyphicon glyphicon-asterisk"></span>
+       
+       </a> 
+         
+      </td>
+</tr>
+
+
+
+
+
+
+
+
+</table>
+
+<div th:replace="modalClientes"></div>
+
+
+
+
+
+
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,46 @@
+body {
+	background-color: rgba(238,232,170,1);
+}
+
+header#cabecalho {
+	background-color: black;
+	color: white;
+	margin:5px;
+	text-align:center;
+    border-radius: 10px;
+    height:40px;
+	
+	
+}
+
+nav#menu {
+	background-color: black;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px;
+}
+
+nav#menu a{
+	color: black;
+	background-color: yellow;
+	border-radius:10px;
+	margin: 30px;
+	font-size: 14pt;
+	padding:4px;
+}
+div#home h2{
+	text-align: center;
+	padding-top:100px;
+	border-radius: 10px;
+}
+
+footer#rodape {
+	position: absolute;
+	top: 560px;
+	margin: 5px;
+	color:white;
+	background-color:black;
+	width: 1350px;
+	border-radius: 10px;
+	padding-left:5px;
+}

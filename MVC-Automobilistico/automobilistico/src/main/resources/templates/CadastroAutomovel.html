@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/home.css"/>
+
+
+</head>
+<body>
+<header id="cabecalho">
+  <h3>Cadastro de Automóveis</h3>
+   
+
+</header>
+<nav id="menu">
+<a href="/automovel/listarAutomoveis"><label>Listar Cadastros</label></a>
+   <a href="/"><label>Home</label></a>
+
+</nav>
+
+<form method="POST"  action="/automovel" th:object="${cadastro}">
+
+<input type="hidden" th:field="*{idCadastro}"/>
+
+<label>Placa : *</label>
+  <input type="text" class="form-control"  th:field="*{placa}"/>
+  
+  <label>Modelo: *</label>
+    <input type="text" class="form-control"  th:field="*{modelo}"/>
+    <label>Ano de Fabricação: *</label>
+      <input type="text" class="form-control"  th:field="*{anoFabricacao}" />
+      
+      <label>Valor: *</label>
+        <input type="text" class="form-control"  th:field="*{valor}"/>
+        
+        
+         <div class="form-group" id="salvar">
+        <div class="col-sm-offset-2 col-sm-10">
+           <button type="submit" class="btn btn-primary">Salvar</button>
+        
+        
+        </div>
+      
+    
+  
+
+
+
+
+
+</form>
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
